@@ -1,0 +1,16 @@
+[package]
+name = "api-sbuser"
+version = "0.1.0"
+edition = "2024"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
+
+[dependencies]
+axum = { version = "0.8.8", features = ["tokio", "json", "http1"], default-features = false }
+serde = { version = "1.0.228", default-features = false }
+sqlx = { version = "0.8.6", features = ["runtime-tokio", "sqlite", "migrate", "macros"], default-features = false }
+tokio = { version = "1.50.0", features = ["rt-multi-thread", "signal"], default-features = false }
