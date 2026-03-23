@@ -43,7 +43,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
 
     let app = public.merge(protected).merge(vip);
 
-    let addr = "127.0.0.1:3000";
+    let addr = "0.0.0.0:3000";
     println!("Listening on http://{}", addr);
     let listener: tokio::net::TcpListener =
         tokio::net::TcpListener::bind(addr).await.expect("Failed to bind to address");
